@@ -1,22 +1,28 @@
 package Main;
 
+
+
 import java.util.Scanner;
 
 import entities.Counter;
 
-public class Program {
 
+public class Program {
+	
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
 		System.out.printf("Digite uma frase: ");
-		String palavra = sc.nextLine();
+		String frase = sc.nextLine();
 
-		int quantidadeDePalavras = Counter.contadorPalavras(palavra);
+		Counter contador = new Counter(frase);
+
+		int quantidadeDePalavras = contador.contadorPalavras();
 		System.out.println("Numero total de palavras nesta frase: " + quantidadeDePalavras);
-
-		System.out.println(Counter.encontrarPalavras(palavra));
-
-      	sc.close();
+		
+		System.out.println(contador.encontrarPalavras());
+		System.out.println("Numero total de letras neste texto: " + contador.contadorLetras());
+      	
+		sc.close();
 	}
 }
